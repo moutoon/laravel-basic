@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostsController@index')->name('top');  // root(top)にGETリクエストが来たらPostsControllerのindexアクションを呼び出す

@@ -21,8 +21,8 @@
         </div>
     </header>
     
-    @yield('content')   <!-- index.blade.phpの@section('content')を差し込む -->
-    
+    <!-- index.blade.phpの@section('content')を差し込む -->
+    @yield('content')
     
 </body>
 </html>

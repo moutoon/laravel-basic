@@ -13,3 +13,6 @@
 
 // root(top)にGETリクエストが来たらPostsControllerのindexアクションを呼び出す
 Route::get('/', 'PostsController@index')->name('top');
+
+// postsにリクエストが来たら、PostsControllerの指定されたアクションを呼び出す
+Route::resource('posts', 'PostsController', ['only' =>['create', 'store']]);

@@ -5,6 +5,12 @@
 @section('content')
 
     <div class="container mt-4">
+        <div class="mb-4">
+            <!-- click -> web.php posts -> PostsController@create -> create.blade.php -->
+            <a href="{{ route('posts.create') }}" class="btn btn-primary">
+                投稿を新規作成する
+            </a>
+        </div>
         @foreach ($posts as $post)
             <div class="card mt-4">
                 <div class="card-header mb-2">

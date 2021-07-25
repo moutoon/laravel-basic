@@ -15,4 +15,5 @@
 Route::get('/', 'PostsController@index')->name('top');
 
 // postsにリクエストが来たら、PostsControllerの指定されたアクションを呼び出す
+// Create -> POST, Read -> GET, Update -> PUT, Delete -> DELETE
 Route::resource('posts', 'PostsController', ['only' =>['create', 'store', 'show', 'edit', 'update', 'destroy']]);

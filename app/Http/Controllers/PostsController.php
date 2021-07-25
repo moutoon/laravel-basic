@@ -10,7 +10,8 @@ class PostsController extends Controller
     public function index()
     {
         // Postモデルからデータをcreated_atの順番で取得し、降順に並び替えて$postsに代入する
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        // 5件ずつ
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);;
         // viewのpostsのindexを返す
         return view('posts.index', ['posts' => $posts]);
     }

@@ -33,6 +33,8 @@
                                 type="text"
                             >
                         </div>
+                    </div>
+                    <div class="form-group">
                         <div>
                             <label for="body">
                                 本文
@@ -45,6 +47,8 @@
                             >{{ $post->body }}
                             </textarea>
                         </div>
+                    </div>
+                    <div class="form-group">
                         <div class="mt-5">
                             <!-- 一つ前の画面に戻るのでposts.show。データを渡す必要がある。 -->
                              <a class="btn btn-secondary" href="{{ route('posts.show', ['post' => $post]) }}">

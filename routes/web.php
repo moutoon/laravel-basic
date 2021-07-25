@@ -15,4 +15,4 @@
 Route::get('/', 'PostsController@index')->name('top');
 
 // postsにリクエストが来たら、PostsControllerの指定されたアクションを呼び出す
-Route::resource('posts', 'PostsController', ['only' =>['create', 'store']]);
+Route::resource('posts', 'PostsController', ['only' =>['create', 'store', 'show', 'edit', 'update', 'destroy']]);

@@ -7,12 +7,17 @@
     <div class="container mt-4">
         <div>
             <h1 class="h5 mb-4">
-                投稿の新規作成
+                投稿の編集
             </h1>
             
-            <form method="POST" action="{{ route('posts.store') }}">
+            <!-- UPDATEするときは元データを更新するので、元データを渡す必要がある -->
+            <form method="POST" action="{{ route('posts.update', ['post' => $post]) }}">
                 <!--csrf対策-->
                 {{ csrf_field() }}
+                
+                <!-- ブラウザのリクエストはGETとPOSTのみだが、
+                LaravelはPUTとDELETEも評価しているので以下を記述する必要がある -->
+                {{ method_field('PUT') }}
                 
                 <fieldset class="mb-4">
                     <div class="form-group">
@@ -24,6 +29,7 @@
                                 id="title"
                                 name="title"
                                 class="form-control"
+                                value="{{ $post->title }}"
                                 type="text"
                             >
                         </div>
@@ -36,16 +42,18 @@
                                 name="body"
                                 class="form-control"
                                 rows="4"
-                            ></textarea>
+                            >{{ $post->body }}
+                            </textarea>
                         </div>
                         <div class="mt-5">
-                             <a class="btn btn-secondary" href="{{ route('top') }}">
+                            <!-- 一つ前の画面に戻るのでposts.show。データを渡す必要がある。 -->
+                             <a class="btn btn-secondary" href="{{ route('posts.show', ['post' => $post]) }}">
                                 キャンセル
                             </a>
                         
-                            <!-- click -> web.php posts -> PostsController@store -->
+                            <!-- click -> web.php posts -> PostsController@update -->
                             <button type="submit" class="btn btn-primary">
-                                投稿する
+                                更新する
                             </button>
                         </div>
                     </div>
